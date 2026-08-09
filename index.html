@@ -1,21 +1,224 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>КСЮША.OS</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-head"><div class="shell head-in">
-<a class="logo" href="index.html">КСЮША <span>.OS</span></a>
-<nav class="nav"><a href="poias.html">ПОЯС</a><a href="dyadya.html">ДЯДЯ</a><a href="questions.html">ВОПРОСЫ</a><a href="compliments.html">КОМПЛИМЕНТЫ</a><a href="complaints.html">ЖАЛОБЫ</a></nav>
-<div class="progress-mini"><span>штампы</span><b data-stamp-count>0</b>/8<div class="progress-track"><div class="progress-fill"></div></div></div>
-</div></header>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f3eee4"><title>КСЮША.OS — дядя опять что-то придумал</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html">КСЮША<span>.OS</span></a>
+    <nav class="nav">
+      <a href="index.html">главная</a>
+      <a href="permissions.html">разрешения</a>
+      <a href="questions.html">вопросы</a>
+      <a href="dossier.html">досье</a>
+      <a href="compliments.html">комплименты</a>
+    </nav>
+    <div class="status"><span class="status-dot"></span> дядя онлайн</div>
+  </div>
+</header>
 
-<main class="shell"><section class="hero"><div class="overline">персональный интернет · доступ: только малумазель</div><h1>Ксюша, это снова <span class="marker">дядя.</span></h1><p>Я сделал тебе не «милый сайт», а целое место, где можно побесить меня, получить тупой вопрос, проверить ПОЯС, выписать жалобу и иногда наткнуться на абсолютно серьёзную правду о том, какая ты крутая.</p><div class="hero-stickers"><span class="sticker rotate-a">РОМАНТИКА: НЕТ</span><span class="sticker rotate-b">ДУРКА: ДА</span><span class="sticker rotate-a">ПОЯС: 100%</span></div></section>
+<main class="shell">
+<section class="hero">
+  <div class="eyebrow">частный портал для одной малумазель</div>
+  <h1>Ксюша, у меня опять <span class="marker">тупой вопрос.</span></h1>
+  <p>Этот сайт официально создан для трёх вещей: подразнить тебя, побесить тебя и напомнить, что ты вообще-то очень крутая. Романтика запрещена. Дурка разрешена.</p>
+  <div class="hero-actions">
+    <button class="btn yellow" onclick="scrollToId('permission')">Дать дяде разрешение</button>
+    <button class="btn paper" onclick="scrollToId('annoy')">Побеситься</button>
+    <a class="btn red" href="compliments.html">Получить честный комплимент</a>
+  </div>
+</section>
+
+<section class="micro-belt">
+  <strong>ПОЯС / просто проверка связи</strong>
+  <div class="belt-line"><div class="belt-fill" id="beltFill"></div></div>
+  <button class="btn paper tiny" onclick="messWithBelt()">проверить</button>
+  <div class="belt-msg" id="beltMsg">Соединение стабильно. Понятно и ясно.</div>
+</section>
+
 <section class="grid">
-<article class="card yellow full"><div class="tape"></div><div class="label">главное сообщение системы</div><h2>Понятно и ясно.</h2><p>Ты тут не гость. Это твой личный кусок интернета. Нажимай всё, спорь с дядей, ищи секреты и собирай штампы ПОЯСА.</p><div class="btn-row"><a class="btn" href="poias.html">ПРОВЕРИТЬ ПОЯС</a><a class="btn paper" href="questions.html">ЗАДАТЬСЯ ВОПРОСОМ</a></div></article>
-<article class="card blue"><div class="label">текущее дело</div><h2>Дядя против ребёнка</h2><p>Великий конфликт поколений с разницей примерно в полгода. История, право и совершенно объективная статистика.</p><div class="btn-row"><a class="btn blue" href="dyadya.html">В ДЕЛО</a></div></article>
-<article class="card peach"><div class="label">важно</div><h2>Комплименты без прикрытия</h2><p>Да, здесь я не буду делать вид, что хорошие слова надо дозировать. Тут всё честно: я правда тобой восхищаюсь.</p><div class="btn-row"><a class="btn red" href="compliments.html">ОТКРЫТЬ</a></div></article></section>
-<section class="page-links">
-<a class="page-link" href="poias.html"><span>01 / канал связи</span><b>ПОЯС</b><span>Проверка соединения, стресс‑тест и секретный протокол.</span></a>
-<a class="page-link" href="dyadya.html"><span>02 / дело века</span><b>ДЯДЯ</b><span>Полгода разницы превращаются в целую эпоху.</span></a>
-<a class="page-link" href="questions.html"><span>03 / научный отдел</span><b>ВОПРОСЫ</b><span>Тупые, важные и подозрительно жизненные.</span></a>
-<a class="page-link" href="compliments.html"><span>04 / серьёзный отдел</span><b>КОМПЛИМЕНТЫ</b><span>Без романтики. Просто почему ты реально крутая.</span></a>
-<a class="page-link" href="complaints.html"><span>05 / бюрократия</span><b>ЖАЛОБЫ</b><span>На дядю. На систему. На само существование дяди.</span></a>
-<a class="page-link" href="final.html"><span>06 / закрытый архив</span><b>СЕКРЕТ</b><span>Откроется полностью, когда ты нормально всё исследуешь.</span></a>
-</section></main>
-<footer class="footer shell">КСЮША.OS · частный интернет для одной малумазель · ПОЯС держится, понятно и ясно.</footer><div class="toast"><b>Штамп получен</b><span>ПОЯС обновлён.</span></div><script src="app.js"></script></body></html>
+  <article class="card yellow" id="permission">
+    <div class="tape"></div>
+    <div class="kicker">разрешение у мадемуазель</div>
+    <h2>Дяде сегодня можно существовать?</h2>
+    <p>Ваш ответ будет обработан максимально объективной системой, которой управляет сам дядя.</p>
+    <div class="permission-options">
+      <button class="btn yellow" onclick="permission('yes')">Разрешаю</button>
+      <button class="btn paper" onclick="permission('no')">Нет</button>
+      <button class="btn red" onclick="permission('go')">Иди отсюда</button>
+    </div>
+    <div class="output" id="permissionOut">Ожидание решения великой малумазель…</div>
+    <div class="stack"><a class="btn paper tiny" href="permissions.html">открыть целое бюро разрешений →</a></div>
+  </article>
+
+  <article class="card peach">
+    <div class="kicker">разница поколений</div>
+    <h2>Уважай старших.</h2>
+    <p>По официальным данным дядя старше примерно на полгода, а значит имеет право драматично вздыхать и говорить «молодёжь…».</p>
+    <div class="counter">~ 6 мес.</div>
+    <div class="subtle">историческая пропасть между поколениями</div>
+    <div class="stack"><button class="btn paper" onclick="elderQuote()">мудрость дяди</button></div>
+    <div class="output" id="elderOut">«В мои времена…» — Абубакир, 17 лет.</div>
+  </article>
+
+  <article class="card big blue" id="annoy">
+    <div class="kicker">главная кнопка</div>
+    <h2>НЕ НАЖИМАЙ.</h2>
+    <p>Серьёзно. Там ничего полезного. Просто прояви силу воли хотя бы один раз.</p>
+    <div class="rage" id="rageZone"><button class="btn red" id="dontPress">НЕ НАЖИМАЙ</button></div>
+    <div class="output" id="rageOut">Система пока считает Ксюшу благоразумным человеком.</div>
+  </article>
+
+  <article class="card third yellow">
+    <div class="kicker">тупой вопрос дня</div>
+    <h2>Серьёзный опрос.</h2>
+    <p>Научная ценность данных примерно нулевая.</p>
+    <div class="stack"><button class="btn yellow" onclick="newQuestion()">выдать вопрос</button></div>
+    <div class="output" id="questionOut">Нажмите для получения очередной ерунды.</div>
+    <div class="stack"><a class="btn paper tiny" href="questions.html">ещё больше вопросов →</a></div>
+  </article>
+
+  <article class="card third pink">
+    <div class="kicker">комплиментный модуль</div>
+    <h2>Ладно, секунду без приколов.</h2>
+    <p>Здесь хорошие слова не прячутся за шутками. Я правда хочу, чтобы ты их слышала.</p>
+    <div class="stack"><button class="btn red" onclick="newCompliment()">ну давай</button></div>
+    <div class="output" id="complimentOut">Ты очень крутая. И это не режим сайта, это факт по версии дяди.</div>
+    <div class="stack"><a class="btn paper tiny" href="compliments.html">нормальный отдел →</a></div>
+  </article>
+
+  <article class="card third green">
+    <div class="kicker">малумазель status</div>
+    <h2>Текущее досье</h2>
+    <div class="dossier">
+      <div class="dossier-item">Статус: <b>малумазель</b></div>
+      <div class="dossier-item">Возраст по версии дяди: <b>ребёнок</b></div>
+      <div class="dossier-item">Уровень вредности: <b>плавает</b></div>
+      <div class="dossier-item">Право спорить: <b>почему-то есть</b></div>
+    </div>
+    <span class="secret-chip" onclick="secretTap()">не трогать</span>
+    <div class="stack"><a class="btn paper tiny" href="dossier.html">полное досье →</a></div>
+  </article>
+
+  <article class="card">
+    <div class="kicker">жалоба на дядю</div>
+    <h2>Официальная приёмная.</h2>
+    <p>Можно пожаловаться. Последствия по-прежнему подозрительные.</p>
+    <div class="form-stack">
+      <select id="complaintReason">
+        <option>Опять назвал ребёнком</option>
+        <option>Слишком много тупых вопросов</option>
+        <option>Просит разрешение на всё подряд</option>
+        <option>Умничает как настоящий дед</option>
+        <option>Просто бесит</option>
+      </select>
+      <textarea id="complaintText" placeholder="Дополнительная претензия к дяде…"></textarea>
+      <button class="btn red" onclick="sendComplaint()">ОТПРАВИТЬ ЖАЛОБУ</button>
+    </div>
+    <div class="output" id="complaintOut">Жалоб пока нет. Подозрительно.</div>
+  </article>
+
+  <article class="card peach">
+    <div class="kicker">аварийная остановка</div>
+    <h2>Абубакир, хватит.</h2>
+    <p>Кнопка предназначена для экстренных случаев, когда дядя окончательно достал.</p>
+    <div class="stack"><button class="btn red" onclick="emergency()">АБУБАКИР, ХВАТИТ</button></div>
+    <div class="output">После нажатия система обязуется вести себя прилично целых несколько секунд.</div>
+  </article>
+
+  <article class="card big yellow">
+    <div class="kicker">статистика преступлений</div>
+    <h2>Ксюша против системы</h2>
+    <p>Ни одна цифра не проходила независимую проверку.</p>
+    <div class="stats">
+      <div class="stat"><b id="s1">12</b><span>споров с дядей</span></div>
+      <div class="stat"><b id="s2">7</b><span>отказов в разрешении</span></div>
+      <div class="stat"><b id="s3">∞</b><span>случаев вредности</span></div>
+      <div class="stat"><b id="s4">0</b><span>разов, когда сайт признал её правоту</span></div>
+    </div>
+    <div class="stack"><button class="btn paper" onclick="auditStats()">проверить честность статистики</button></div>
+    <div class="small-print">* данные могли быть слегка, чуть-чуть, совсем капельку сфальсифицированы.</div>
+  </article>
+
+  <article class="card blue">
+    <div class="kicker">новый интерактив</div>
+    <h2>Насколько сегодня вредная Ксюша?</h2>
+    <p>Передвинь ползунок. Сайт попытается сохранить объективность.</p>
+    <div class="slider-wrap"><input id="harm" type="range" min="0" max="100" value="47" oninput="harmUpdate()"></div>
+    <div class="big-readout" id="harmValue">47%</div>
+    <div class="output" id="harmOut">Нормальный рабочий уровень вредности.</div>
+  </article>
+
+  <article class="card green">
+    <div class="kicker">новый интерактив</div>
+    <h2>Разрешите задать тупой вопрос?</h2>
+    <p>Да, теперь сайт сначала вежливо спрашивает разрешение сделать то, что всё равно собирался сделать.</p>
+    <div class="stack">
+      <button class="btn green" onclick="politeQuestion('yes')">Разрешаю</button>
+      <button class="btn paper" onclick="politeQuestion('no')">Нет</button>
+    </div>
+    <div class="output" id="politeOut">Дядя стоит с поднятой рукой и ждёт.</div>
+  </article>
+
+  <article class="card big pink">
+    <div class="kicker">нормальный режим</div>
+    <h2>А теперь без дурки.</h2>
+    <p>Ты реально очень крутой человек. Мне нравится, что с тобой можно не строить из себя кого-то, можно задавать максимально тупые вопросы, спорить, подкалывать друг друга и всё равно оставаться собой. И да, я могу сколько угодно называть тебя ребёнком — это не отменяет того, что я тобой восхищаюсь и очень ценю нашу дружбу.</p>
+    <div class="normal-list">
+      <div class="normal-item">С тобой можно быть максимально собой.</div>
+      <div class="normal-item">Ты умеешь одновременно бесить и поднимать настроение. Это талант.</div>
+      <div class="normal-item">У нас есть собственный язык, который нормальные люди уже не обязаны понимать.</div>
+      <div class="normal-item">Мне правда хочется поддерживать тебя и напоминать тебе о том, что в тебе хорошего.</div>
+    </div>
+    <div class="compliment" id="finalCompliment">Всё. Нормальные слова закончились. Пока что.</div>
+  </article>
+</section>
+
+<section class="extra-nav">
+  <a class="extra-link" href="permissions.html"><span>отдельная страница</span><b>Бюро разрешений</b><span>Дядя просит разрешение на всё подряд. Теперь официально.</span></a>
+  <a class="extra-link" href="questions.html"><span>отдельная страница</span><b>Вопросная</b><span>Ещё больше нелепых вопросов и реакций на ответы.</span></a>
+  <a class="extra-link" href="dossier.html"><span>отдельная страница</span><b>Досье малумазель</b><span>Статусы, уровень вредности, достижения и преступления.</span></a>
+  <a class="extra-link" href="compliments.html"><span>отдельная страница</span><b>Нормальный отдел</b><span>Комплименты без «не привыкай». Просто хорошие слова.</span></a>
+</section>
+</main>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="kicker">система экстренной тишины</div>
+    <h3>Хорошо.</h3>
+    <p id="modalText">Дядя молчит. Наслаждайся моментом.</p>
+    <div class="modal-actions">
+      <button class="btn paper" onclick="closeModal()">закрыть</button>
+      <button class="btn yellow" id="continueBtn" style="display:none" onclick="resumeChaos()">…а теперь можно продолжить?</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+<script>
+const beltMessages=["Соединение стабильно. Понятно и ясно.","Связь есть. Дядя на месте. Можно продолжать дурку.","Ксюша на линии. Всё штатно.","Проверка завершена: ничего чинить не надо."];
+const questions=["Если пингвин наденет носки, он станет серьёзнее?","Ты бы дружила со мной, если бы я был табуреткой?","Можно ли считать сон хобби, если заниматься им каждый день?","Если я старше на полгода, могу ли официально требовать «уважай старших»?","Разрешаете дяде сегодня приобрести хлеб?","Если кошка села на ноутбук — она теперь системный администратор?","Кто победит: одна очень злая Ксюша или сто маленьких Абубакиров?","Если сказать «понятно и ясно» два раза, это становится юридическим документом?","Нужно ли мне получать письменное разрешение малумазель на существование после полуночи?","Если я назову тебя ребёнком 30 раз, я автоматически становлюсь дедушкой?"];
+const compliments=["Ты реально умеешь делать обычные разговоры в сто раз веселее.","С тобой комфортно быть максимально странным. Это редкая и очень крутая штука.","Ты сильнее, умнее и упорнее, чем иногда сама думаешь.","У тебя очень свой характер. И именно поэтому с тобой никогда не скучно.","Ты из тех людей, чьё присутствие реально меняет настроение дня в лучшую сторону.","Да, я тебя дразню. Но восхищаться тобой мне это вообще не мешает.","Мне нравится, что с тобой можно быть собой и не фильтровать каждую глупость.","Ты реально важный для меня человек, и я хочу, чтобы ты это знала."];
+const elderQuotes=["«В мои времена полгода разницы уважали.»","«Эх, молодёжь… 16 лет… совершенно другое поколение.»","«Дядя плохого не посоветует. Иногда. Наверное.»","«Я старше. Следовательно, по законам дяди, автоматически мудрее.»","«Когда тебе будет 17, я уже буду ещё ближе к пенсии.»"];
+let rageClicks=0,secretCount=0;
+function messWithBelt(){const f=document.getElementById("beltFill"),m=document.getElementById("beltMsg");f.style.width=(78+Math.floor(Math.random()*23))+"%";m.textContent=rand(beltMessages);setTimeout(()=>f.style.width="100%",900)}
+function permission(type){const out=document.getElementById("permissionOut");if(type==="yes"){out.textContent="РАЗРЕШЕНИЕ ПОЛУЧЕНО. Дядя счастлив и официально может существовать ещё 24 часа.";unlockAchievement("permYes","Бюрократия пройдена","Малумазель выдала разрешение дяде.")}else if(type==="no"){out.textContent="Ответ «нет» получен. Система его рассмотрела и… очень удобно потеряла.";unlockAchievement("permNo","Отказ зарегистрирован","Апелляция уже готовится.")}else{out.textContent="Система направила дядю «отсюда». Геолокация «отсюда» не найдена.";document.getElementById("permission").classList.add("shake");setTimeout(()=>document.getElementById("permission").classList.remove("shake"),450)}}
+function elderQuote(){document.getElementById("elderOut").textContent=rand(elderQuotes)}
+function newQuestion(){document.getElementById("questionOut").textContent=rand(questions);state.questions++;save();unlockAchievement("question","Наука пострадала","Получен ещё один абсолютно необходимый вопрос.")}
+function newCompliment(){document.getElementById("complimentOut").textContent=rand(compliments);unlockAchievement("compliment","Хорошие слова","На этот раз без попытки спрятать их за шуткой.")}
+function sendComplaint(){const reason=document.getElementById("complaintReason").value,extra=document.getElementById("complaintText").value.trim();document.getElementById("complaintOut").textContent=`Жалоба «${reason}» принята${extra?" вместе с возмущённым комментарием":""}. Комиссия постановила: дядя действительно иногда бесит.`;state.complaints++;save();unlockAchievement("complaint","Жалоба №001","Справедливость почти восторжествовала.")}
+function auditStats(){document.getElementById("s1").textContent=Math.floor(10+Math.random()*90);document.getElementById("s2").textContent=Math.floor(6+Math.random()*25);document.getElementById("s3").textContent="∞";document.getElementById("s4").textContent="0";unlockAchievement("audit","Аудит завершён","Нарушений не найдено, потому что аудитор — дядя.")}
+function emergency(){const modal=document.getElementById("modal"),btn=document.getElementById("continueBtn"),text=document.getElementById("modalText");modal.classList.add("show");btn.style.display="none";text.textContent="Дядя молчит. Наслаждайся моментом.";document.body.style.overflow="hidden";setTimeout(()=>{btn.style.display="inline-flex";text.textContent="Прошло достаточно времени. Наверное."},3200);unlockAchievement("quiet","Тишина","Редчайшее явление: Абубакир временно замолчал.")}
+function closeModal(){document.getElementById("modal").classList.remove("show");document.body.style.overflow=""}
+function resumeChaos(){closeModal();unlockAchievement("resume","Она разрешила","Дурка официально возобновлена.")}
+function secretTap(){secretCount++;if(secretCount<4){unlockAchievement("secret"+secretCount,"Не трогать же написано",`Осталось ${4-secretCount} нажатия до бессмысленного результата.`)}else{document.getElementById("finalCompliment").textContent="СЕКРЕТ: да, я специально знал, что ты будешь нажимать. Поэтому кнопка и существует.";unlockAchievement("secretFinal","СЕКРЕТ НАЙДЕН","Поздравляю. Ты снова не послушала дядю.")}}
+function harmUpdate(){const v=+document.getElementById("harm").value;document.getElementById("harmValue").textContent=v+"%";document.getElementById("harmOut").textContent=v<20?"Подозрительно спокойная. Где подвох?":v<55?"Нормальный рабочий уровень вредности.":v<85?"Дядя рекомендует соблюдать осторожность.":"КРИТИЧЕСКИЙ УРОВЕНЬ. Ребёнок вышел на полную мощность.";if(v===100)unlockAchievement("harm100","100% вредности","Легендарный показатель официально достигнут.")}
+function politeQuestion(v){document.getElementById("politeOut").textContent=v==="yes"?"Спасибо, малумазель. Вопрос: если дядя попросил разрешение задать вопрос — это уже был вопрос?":"Понял. Тогда вопрос задавать не буду. Этот ответ тоже считается взаимодействием, ха.";unlockAchievement("polite","Этикет соблюдён","Дядя хотя бы попытался спросить разрешение.")}
+const btn=document.getElementById("dontPress"),zone=document.getElementById("rageZone");
+function moveButton(){const maxX=Math.max(0,zone.clientWidth-btn.offsetWidth-24),maxY=Math.max(0,zone.clientHeight-btn.offsetHeight-24);btn.style.left=(12+Math.random()*maxX)+"px";btn.style.top=(12+Math.random()*maxY)+"px";btn.style.transform="none"}
+btn.addEventListener("mouseenter",()=>{if(rageClicks<4)moveButton()});
+btn.addEventListener("touchstart",e=>{if(rageClicks<4){e.preventDefault();rageClicks++;moveButton();rageReact()}},{passive:false});
+btn.addEventListener("click",()=>{rageClicks++;rageReact();moveButton()});
+function rageReact(){const lines=["Я ЖЕ СКАЗАЛ НЕ НАЖИМАТЬ.","Ксюша…","Ребёнок обнаружен.","Сопротивление инструкции: 100%.","Дядя глубоко разочарован. Секунд на пять.","Ладно, ты победила. Кнопка тоже устала."];document.getElementById("rageOut").textContent=lines[Math.min(rageClicks-1,lines.length-1)];if(rageClicks>=5){btn.textContent="ЛАДНО, ЖМИ";unlockAchievement("rage","Непослушание","Инструкция «не нажимай» была успешно проигнорирована.")}}
+window.addEventListener("resize",()=>{if(rageClicks>0)moveButton()});
+setTimeout(()=>unlockAchievement("start","Система запущена","КСЮША.OS готова к бессмысленному взаимодействию."),800);
+</script>
+<footer class="footer"><div class="shell">КСЮША.OS · версия «дядя опять что-то придумал» · дружба: да · романтика: нет · дурка: стабильно</div></footer>
+<div class="achievement" id="achievement"><div class="title">Достижение</div><div class="desc">Описание</div></div>
+
+</body></html>
