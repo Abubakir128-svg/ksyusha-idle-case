@@ -1,0 +1,57 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f3eee4"><title>Бюро разрешений — КСЮША.OS</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html">КСЮША<span>.OS</span></a>
+    <nav class="nav">
+      <a href="index.html">главная</a>
+      <a href="permissions.html">разрешения</a>
+      <a href="questions.html">вопросы</a>
+      <a href="dossier.html">досье</a>
+      <a href="compliments.html">комплименты</a>
+    </nav>
+    <div class="status"><span class="status-dot"></span> дядя онлайн</div>
+  </div>
+</header>
+
+<main class="shell">
+<section class="page-hero"><div class="eyebrow">отдельный кабинет · бюро разрешений</div><h1>Малумазель, <span class="marker">разрешите?</span></h1><p>Здесь дядя официально просит разрешение на вещи, на которые нормальный человек разрешение бы не спрашивал.</p></section>
+<section class="grid">
+  <article class="card yellow">
+    <div class="kicker">текущее заявление</div>
+    <h2 id="permitTitle">Разрешаете дяде сегодня открыть холодильник?</h2>
+    <div class="permission-options">
+      <button class="btn yellow" onclick="answerPermit('Разрешено')">Разрешаю</button>
+      <button class="btn paper" onclick="answerPermit('Отказано')">Нет</button>
+      <button class="btn red" onclick="answerPermit('Сначала объясни зачем')">Обоснуй</button>
+    </div>
+    <div class="output" id="permitOut">Заявление ожидает решения.</div>
+    <div class="stack"><button class="btn paper" onclick="nextPermit()">следующее заявление</button></div>
+  </article>
+  <article class="card blue">
+    <div class="kicker">архив решений</div>
+    <h2>Что уже было решено</h2>
+    <div class="history" id="permitHistory"></div>
+  </article>
+  <article class="card big peach">
+    <div class="kicker">особое заявление</div>
+    <h2>Разрешаете дяде продолжать называть себя дядей?</h2>
+    <p>Юридически решение малумазель обязательно к рассмотрению. Не обязательно к исполнению.</p>
+    <div class="stack"><button class="btn green" onclick="unclePermit('yes')">Разрешаю</button><button class="btn red" onclick="unclePermit('no')">ЗАПРЕЩАЮ</button></div>
+    <div class="output" id="uncleOut">Комиссия волнуется.</div>
+  </article>
+</section>
+</main>
+<script src="app.js"></script>
+<script>
+const permitRequests=["Разрешаете дяде сегодня открыть холодильник?","Разрешаете дяде лечь спать после полуночи?","Разрешаете дяде купить хлеб без письменного согласования?","Разрешаете дяде задать один очень тупой вопрос?","Разрешаете дяде сказать «уважай старших» ещё один раз?","Разрешаете дяде существовать с повышенным уровнем умничанья?","Разрешаете дяде отправить вам мем без предварительного уведомления?","Разрешаете дяде считать себя мудрее из-за шести месяцев разницы?"];
+let currentPermit=permitRequests[0];
+function renderHistory(){const box=document.getElementById("permitHistory");if(!state.permits.length){box.innerHTML='<div class="paper-note">Архив пока пуст. Подозрительно мало бюрократии.</div>';return}box.innerHTML=state.permits.slice(-6).reverse().map(x=>`<div class="history-item"><b>${x.answer}</b><br><span>${x.q}</span></div>`).join("")}
+function nextPermit(){currentPermit=rand(permitRequests);document.getElementById("permitTitle").textContent=currentPermit;document.getElementById("permitOut").textContent="Заявление ожидает решения."}
+function answerPermit(answer){document.getElementById("permitOut").textContent=answer==="Разрешено"?"РЕШЕНИЕ: РАЗРЕШЕНО. Дядя торжественно благодарит малумазель.":answer==="Отказано"?"РЕШЕНИЕ: ОТКАЗАНО. Дядя уже пишет апелляцию.":"Комиссия требует от дяди объяснить, зачем ему вообще это понадобилось.";state.permits.push({q:currentPermit,answer});if(state.permits.length>30)state.permits.shift();save();renderHistory();unlockAchievement("permitPage","Бюро заработало","Официальное решение зарегистрировано.")}
+function unclePermit(v){document.getElementById("uncleOut").textContent=v==="yes"?"РАЗРЕШЕНО. Дядя невероятно доволен собой.":"ЗАПРЕЩЕНО. Дядя ознакомился и продолжил существовать в состоянии юридической неопределённости."}
+renderHistory();
+</script>
+<footer class="footer"><div class="shell">КСЮША.OS · версия «дядя опять что-то придумал» · дружба: да · романтика: нет · дурка: стабильно</div></footer>
+<div class="achievement" id="achievement"><div class="title">Достижение</div><div class="desc">Описание</div></div>
+
+</body></html>
