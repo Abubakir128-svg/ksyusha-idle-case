@@ -1,18 +1,55 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ВОПРОСЫ · КСЮША.OS</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-head"><div class="shell head-in">
-<a class="logo" href="index.html">КСЮША <span>.OS</span></a>
-<nav class="nav"><a href="poias.html">ПОЯС</a><a href="dyadya.html">ДЯДЯ</a><a href="questions.html">ВОПРОСЫ</a><a href="compliments.html">КОМПЛИМЕНТЫ</a><a href="complaints.html">ЖАЛОБЫ</a></nav>
-<div class="progress-mini"><span>штампы</span><b data-stamp-count>0</b>/8<div class="progress-track"><div class="progress-fill"></div></div></div>
-</div></header>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f3eee4"><title>Вопросная — КСЮША.OS</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html">КСЮША<span>.OS</span></a>
+    <nav class="nav">
+      <a href="index.html">главная</a>
+      <a href="permissions.html">разрешения</a>
+      <a href="questions.html">вопросы</a>
+      <a href="dossier.html">досье</a>
+      <a href="compliments.html">комплименты</a>
+    </nav>
+    <div class="status"><span class="status-dot"></span> дядя онлайн</div>
+  </div>
+</header>
 
-<main class="shell" data-page-stamp="questions|Штамп: НАУКА|Тупые вопросы получили официальный отдел."><section class="hero compact"><div class="overline">03 / научный отдел</div><h1>У меня <span class="marker">вопрос.</span></h1><p>Нет, он не обязательно имеет смысл. Да, отвечать всё равно придётся хотя бы мысленно.</p></section><section class="grid">
-<article class="card yellow full"><div class="label">генератор</div><h2>Тупой вопрос дня</h2><div class="compliment-card"><div class="quote" id="qText">Нажми кнопку. Я подготовился.</div><div class="tiny">Научная ценность: сомнительная</div></div><div class="btn-row"><button class="btn" onclick="newQ()">ЕЩЁ ВОПРОС</button><button class="btn paper" onclick="answerQ('yes')">ДА</button><button class="btn paper" onclick="answerQ('no')">НЕТ</button><button class="btn red" onclick="answerQ('what')">ТЫ НОРМАЛЬНЫЙ?</button></div><div class="output" id="answerOut">Ответ пока не зарегистрирован.</div></article>
-<article class="card blue"><div class="label">эксперимент</div><h2>Насколько сегодня вредная Ксюша?</h2><div class="slider-wrap"><input type="range" min="0" max="100" value="50" id="harm" oninput="harmUpdate()"></div><div class="big-number" id="harmN">50%</div><div class="output" id="harmOut">Нормальная рабочая вредность.</div></article>
-<article class="card peach"><div class="label">задай вопрос сайту</div><h2>Сайт тоже умеет умничать</h2><div class="form-stack"><input type="text" id="askInput" placeholder="Например: дядя сегодня прав?"><button class="btn red" onclick="oracle()">СПРОСИТЬ</button></div><div class="output" id="oracleOut">Система ждёт вопрос.</div></article></section></main>
+<main class="shell">
+<section class="page-hero"><div class="eyebrow">лаборатория бессмысленных исследований</div><h1>Тупые вопросы. <span class="marker">Много.</span></h1><p>Сюда дядя складывает вопросы, которым не нашлось нормального применения.</p></section>
+<section class="grid">
+  <article class="card yellow big">
+    <div class="kicker">генератор</div>
+    <div class="quote-card"><div class="quote" id="bigQ">Ты бы дружила со мной, если бы я был табуреткой?</div><div class="by">вопрос № совершенно неважно</div></div>
+    <div class="stack"><button class="btn yellow" onclick="nextQ()">другой вопрос</button><button class="btn paper" onclick="react('да')">да</button><button class="btn paper" onclick="react('нет')">нет</button><button class="btn red" onclick="react('что')">дядя, ты нормальный?</button></div>
+    <div class="output" id="qReact">Ответ пока не зарегистрирован.</div>
+  </article>
+  <article class="card blue">
+    <div class="kicker">что бы ты выбрала</div>
+    <h2>Сложнейший выбор</h2>
+    <div class="choice-grid">
+      <button class="btn paper" onclick="chooseThis(this)">100 маленьких Абубакиров</button>
+      <button class="btn paper" onclick="chooseThis(this)">1 огромный Абубакир</button>
+      <button class="btn paper" onclick="chooseThis(this)">выключить дядю на 10 минут</button>
+      <button class="btn paper" onclick="chooseThis(this)">дать дяде ещё 100 вопросов</button>
+    </div>
+    <div class="output" id="choiceOut">Выбор будет осуждён системой независимо от результата.</div>
+  </article>
+  <article class="card green">
+    <div class="kicker">оракул</div>
+    <h2>Задай вопрос сайту</h2>
+    <div class="form-stack"><input type="text" id="oracleInput" placeholder="Например: дядя сегодня прав?"><button class="btn green" onclick="oracle()">спросить</button></div>
+    <div class="output" id="oracleOut">Система готова отвечать без доказательств.</div>
+  </article>
+</section>
+</main>
+<script src="app.js"></script>
 <script>
-const qs=["Если пингвин наденет носки, он станет серьёзнее?","Ты бы дружила со мной, если бы я был табуреткой?","Если кошка легла на ноутбук — она теперь системный администратор?","Можно ли считать сон хобби, если заниматься им ежедневно?","Если сказать «понятно и ясно» два раза, это уже официальный договор?","Кто победит: одна очень злая Ксюша или сто маленьких Абубакиров?","Разрешаете дяде приобрести хлеб без письменного заявления?","Если я старше на полгода, это даёт мне скидку пенсионера?","Если спор закончился словом «ладно», кто победил на самом деле?","Сколько тупых вопросов нужно задать, чтобы один случайно оказался умным?","Если ПОЯС работает без интернета, это магия или инженерия?","Ты бы выбрала кнопку «выключить дядю» или «сделать дядю ещё тупее»?"];
-function newQ(){document.getElementById("qText").textContent=rand(qs);state.questions++;save();if(state.questions>=3)addStamp("q3","Три вопроса подряд","Научная работа зашла слишком далеко.")}
-function answerQ(a){document.getElementById("answerOut").textContent=a==="yes"?"Ответ «да» принят. Даже если вопрос был про табуретку.":a==="no"?"Ответ «нет» принят. Дядя готовит ещё более тупой вопрос.":"Система проверила. Нормальность дяди не подтверждена."}
-function harmUpdate(){let v=+document.getElementById("harm").value;document.getElementById("harmN").textContent=v+"%";document.getElementById("harmOut").textContent=v<25?"Подозрительно спокойная. Где подвох?":v<60?"Нормальная рабочая вредность.":v<85?"Дядя рекомендует соблюдать осторожность.":"КРИТИЧЕСКИЙ УРОВЕНЬ. ПОЯС держится из последних сил.";if(v===100)addStamp("harm100","100% вредности","Легендарный показатель официально достигнут.")}
-function oracle(){let q=document.getElementById("askInput").value.trim();if(!q){document.getElementById("oracleOut").textContent="Сначала нужен вопрос, малумазель.";return}document.getElementById("oracleOut").textContent=rand(["Безусловно. Источник: мне так захотелось.","Нет. И даже дядя тут бессилен.","Понятно и ясно. Следующий вопрос.","С вероятностью 51%. То есть почти наука.","Система отказалась отвечать, чтобы не разжигать спор.","Ксюша, это уже вопрос к высшим силам, не ко мне."]);addStamp("oracle","Оракул активирован","Сайт уверенно ответил без каких-либо доказательств.")}
-</script><footer class="footer shell">КСЮША.OS · частный интернет для одной малумазель · ПОЯС держится, понятно и ясно.</footer><div class="toast"><b>Штамп получен</b><span>ПОЯС обновлён.</span></div><script src="app.js"></script></body></html>
+const qs=["Если пингвин наденет носки, он станет серьёзнее?","Ты бы дружила со мной, если бы я был табуреткой?","Если кошка легла на клавиатуру — она программист?","Если спор закончился словом «ладно», кто победил?","Если я старше на полгода, мне положена пенсия раньше?","Если сказать «понятно и ясно» три раза — появляется нотариус?","Кто сильнее: очень злая Ксюша или очень упрямый дядя?","Если дядя спросил разрешение задать вопрос, он уже нарушил процедуру?","Если ты выиграла спор, но дядя не признал поражение, считается ли это победой?","Можно ли запретить человеку умничать административным решением?","Ты бы выбрала возможность читать мысли или кнопку отключения дяди?"];
+function nextQ(){document.getElementById("bigQ").textContent=rand(qs);state.questions++;save();unlockAchievement("qPage","Наука расширена","Ещё один вопрос был выдан в мир.")}
+function react(v){document.getElementById("qReact").textContent=v==="да"?"Ответ «да» принят. Даже если вопрос был про табуретку.":v==="нет"?"Ответ «нет» принят. Дядя готовит более убедительную ерунду.":"Проверка показала: нормальность дяди не подтверждена."}
+function chooseThis(btn){document.getElementById("choiceOut").textContent=`Выбрано: «${btn.textContent}». Система осуждает, но уважает решительность.`;unlockAchievement("choice","Выбор сделан","Последствия будут обсуждаться на семейном совете дяди.")}
+function oracle(){const q=document.getElementById("oracleInput").value.trim();if(!q){document.getElementById("oracleOut").textContent="Сначала нужен вопрос, малумазель.";return}document.getElementById("oracleOut").textContent=rand(["Безусловно. Источник: дядя.","Нет. Даже система тут против.","С вероятностью 51%. Практически наука.","Понятно и ясно. Следующий вопрос.","Система решила не вмешиваться в этот спор.","Ответ скрыт из соображений безопасности дяди."])}
+</script>
+<footer class="footer"><div class="shell">КСЮША.OS · версия «дядя опять что-то придумал» · дружба: да · романтика: нет · дурка: стабильно</div></footer>
+<div class="achievement" id="achievement"><div class="title">Достижение</div><div class="desc">Описание</div></div>
+
+</body></html>
