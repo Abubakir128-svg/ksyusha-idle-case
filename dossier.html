@@ -1,0 +1,68 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f3eee4"><title>Досье малумазель — КСЮША.OS</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html">КСЮША<span>.OS</span></a>
+    <nav class="nav">
+      <a href="index.html">главная</a>
+      <a href="permissions.html">разрешения</a>
+      <a href="questions.html">вопросы</a>
+      <a href="dossier.html">досье</a>
+      <a href="compliments.html">комплименты</a>
+    </nav>
+    <div class="status"><span class="status-dot"></span> дядя онлайн</div>
+  </div>
+</header>
+
+<main class="shell">
+<section class="page-hero"><div class="eyebrow">архив малумазель · секретность сомнительная</div><h1>Досье на <span class="marker">Ксюшу.</span></h1><p>Все сведения собраны дядей, поэтому точность данных находится где-то между «подозрительно» и «он это придумал».</p></section>
+<section class="grid">
+  <article class="card green">
+    <div class="kicker">основные данные</div>
+    <h2>Статус</h2>
+    <div class="dossier">
+      <div class="dossier-item">Позывной: <b>малумазель</b></div>
+      <div class="dossier-item">Возраст: <b>ребёнок по версии дяди</b></div>
+      <div class="dossier-item">Способность спорить: <b>легендарная</b></div>
+      <div class="dossier-item">Допуск к тупым вопросам: <b>безлимитный</b></div>
+      <div class="dossier-item">Важность для дяди: <b>очень высокая</b></div>
+    </div>
+  </article>
+  <article class="card peach">
+    <div class="kicker">уровень вредности</div>
+    <h2>Калибровка</h2>
+    <input type="range" min="0" max="100" value="62" id="dHarm" oninput="dHarmUpdate()">
+    <div class="big-readout" id="dHarmN">62%</div>
+    <div class="output" id="dHarmOut">Уверенная рабочая вредность.</div>
+  </article>
+  <article class="card yellow big">
+    <div class="kicker">подозрительные факты</div>
+    <h2>Архив преступлений</h2>
+    <div class="stats">
+      <div class="stat"><b id="ds1">34</b><span>случая «нет» дяде</span></div>
+      <div class="stat"><b id="ds2">∞</b><span>случаев вредности</span></div>
+      <div class="stat"><b id="ds3">17</b><span>раз «ну ты и дурак»</span></div>
+      <div class="stat"><b id="ds4">0</b><span>независимых аудиторов</span></div>
+    </div>
+    <div class="stack"><button class="btn paper" onclick="rerollDossier()">пересчитать</button></div>
+  </article>
+  <article class="card blue big">
+    <div class="kicker">запись в архив</div>
+    <h2>Добавить новое преступление Ксюши</h2>
+    <div class="form-stack"><input type="text" id="crime" placeholder="Например: опять спорила со старшими"><button class="btn blue" onclick="addCrime()">внести в дело</button></div>
+    <div class="history" id="crimeHistory"></div>
+  </article>
+</section>
+</main>
+<script src="app.js"></script>
+<script>
+const crimeKey="ksyusha_crimes_v3";let crimes=[];try{crimes=JSON.parse(localStorage.getItem(crimeKey)||"[]")}catch(e){}
+function dHarmUpdate(){const v=+document.getElementById("dHarm").value;document.getElementById("dHarmN").textContent=v+"%";document.getElementById("dHarmOut").textContent=v<30?"Подозрительно тихая. Наблюдение продолжается.":v<70?"Уверенная рабочая вредность.":"Опасный уровень. Дядя отходит на безопасное расстояние."}
+function rerollDossier(){document.getElementById("ds1").textContent=Math.floor(15+Math.random()*70);document.getElementById("ds3").textContent=Math.floor(5+Math.random()*50);unlockAchievement("dossierAudit","Досье пересчитано","Надёжность цифр не повысилась.")}
+function renderCrimes(){const box=document.getElementById("crimeHistory");box.innerHTML=crimes.length?crimes.slice(-6).reverse().map(x=>`<div class="history-item">${x}</div>`).join(""):'<div class="paper-note">Новых преступлений пока не внесено.</div>'}
+function addCrime(){const v=document.getElementById("crime").value.trim();if(!v)return;crimes.push(v);localStorage.setItem(crimeKey,JSON.stringify(crimes));document.getElementById("crime").value="";renderCrimes();unlockAchievement("crime","Дело пополнено","Новое подозрительное действие внесено в архив.")}
+renderCrimes();
+</script>
+<footer class="footer"><div class="shell">КСЮША.OS · версия «дядя опять что-то придумал» · дружба: да · романтика: нет · дурка: стабильно</div></footer>
+<div class="achievement" id="achievement"><div class="title">Достижение</div><div class="desc">Описание</div></div>
+
+</body></html>
