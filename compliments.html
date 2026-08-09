@@ -1,18 +1,52 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>КОМПЛИМЕНТЫ · КСЮША.OS</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-head"><div class="shell head-in">
-<a class="logo" href="index.html">КСЮША <span>.OS</span></a>
-<nav class="nav"><a href="poias.html">ПОЯС</a><a href="dyadya.html">ДЯДЯ</a><a href="questions.html">ВОПРОСЫ</a><a href="compliments.html">КОМПЛИМЕНТЫ</a><a href="complaints.html">ЖАЛОБЫ</a></nav>
-<div class="progress-mini"><span>штампы</span><b data-stamp-count>0</b>/8<div class="progress-track"><div class="progress-fill"></div></div></div>
-</div></header>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f3eee4"><title>Нормальный отдел — КСЮША.OS</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html">КСЮША<span>.OS</span></a>
+    <nav class="nav">
+      <a href="index.html">главная</a>
+      <a href="permissions.html">разрешения</a>
+      <a href="questions.html">вопросы</a>
+      <a href="dossier.html">досье</a>
+      <a href="compliments.html">комплименты</a>
+    </nav>
+    <div class="status"><span class="status-dot"></span> дядя онлайн</div>
+  </div>
+</header>
 
-<main class="shell" data-page-stamp="compliments|Штамп: ПРАВДА|Отдел честных комплиментов открыт."><section class="hero compact"><div class="overline">04 / серьёзный отдел</div><h1>Да, я тобой <span class="red-marker">восхищаюсь.</span></h1><p>Без «не привыкай», без попыток спрятать хорошее за подколом. Подколов у нас и так хватает. Здесь я просто говорю вещи, которые правда о тебе думаю.</p></section><section class="grid">
-<article class="card peach full"><div class="label">карточка дня</div><div class="compliment-card"><div class="quote" id="comp">Ты умеешь делать обычный разговор в разы живее просто тем, что ты в нём есть.</div><div class="tiny">подпись: тот самый дядя</div></div><div class="btn-row"><button class="btn red" onclick="nextComp()">ЕЩЁ</button><button class="btn paper" onclick="saveFav()">ЭТО ОСТАВЛЯЕМ</button></div><div class="output" id="favOut">Можно листать сколько угодно. Я серьёзно.</div></article>
-<article class="card yellow"><div class="label">не шутка</div><h2>Что я в тебе ценю</h2><div class="note">С тобой можно не изображать нормального человека 24/7.</div><div class="note">Ты умеешь и поддержать, и подколоть так, что разговор остаётся живым.</div><div class="note">У тебя есть свой характер. Не «удобный», а настоящий. И это круто.</div><div class="note">Мне нравится, что у нас появился свой язык, который со стороны может вообще никто не понять.</div></article>
-<article class="card green"><div class="label">уровень гордости дяди</div><h2>Настраивается вручную</h2><input type="range" min="0" max="100" value="100" id="pride" oninput="prideUpdate()"><div class="big-number" id="prideN">100%</div><div class="output" id="prideOut">Да. Именно столько.</div></article></section></main>
+<main class="shell">
+<section class="page-hero"><div class="eyebrow">нормальный отдел · без подкола в каждом предложении</div><h1>Да, я тобой <span class="marker">восхищаюсь.</span></h1><p>Здесь не будет «не привыкай» и «слишком много комплиментов вредно». Наоборот. Если хорошие вещи правда думаешь — их надо говорить.</p></section>
+<section class="grid">
+  <article class="card pink big">
+    <div class="kicker">карточка</div>
+    <div class="quote-card"><div class="quote" id="compText">Ты умеешь делать обычный разговор намного живее просто тем, что ты в нём есть.</div><div class="by">подпись: тот самый дядя</div></div>
+    <div class="stack"><button class="btn red" onclick="nextComp()">ещё</button><button class="btn paper" onclick="favComp()">это оставляем</button></div>
+    <div class="output" id="favOut">Можно листать сколько угодно.</div>
+  </article>
+  <article class="card yellow">
+    <div class="kicker">если день так себе</div>
+    <h2>Открыть аварийный комплимент</h2>
+    <p>Не обещаю решить день одной кнопкой. Но хорошие слова лишними не бывают.</p>
+    <div class="stack"><button class="btn yellow" onclick="emergencyComp()">открыть</button></div>
+    <div class="output" id="emComp">Закрыто до востребования.</div>
+  </article>
+  <article class="card green">
+    <div class="kicker">за что я тебя ценю</div>
+    <div class="paper-note">С тобой можно не изображать кого-то другого.</div>
+    <div class="paper-note">Ты умеешь и поддержать, и подколоть так, что разговор остаётся живым.</div>
+    <div class="paper-note">У тебя есть свой характер. Настоящий, не «удобный».</div>
+    <div class="paper-note">Мне нравится, что у нас появился собственный язык и свои маленькие приколы.</div>
+  </article>
+</section>
+</main>
+<script src="app.js"></script>
 <script>
-const comps=["Ты умеешь делать обычный разговор в разы живее просто тем, что ты в нём есть.","Мне очень нравится твой характер. Ты не кажешься картонной или одинаковой — ты реально ты.","С тобой можно не бояться выглядеть глупо. Для дружбы это огромная редкость.","Ты умеешь оставаться важным человеком даже в самых дурацких переписках.","Мне нравится, что ты умеешь спорить со мной, а не просто соглашаться ради спокойствия.","Ты реально умеешь поднимать настроение, иногда даже когда сама этого не замечаешь.","У тебя есть сила в характере. Я это вижу и правда этим восхищаюсь.","Я очень ценю, что между нами можно одновременно ржать с ерунды и говорить нормально о важном.","Ты не обязана быть идеальной, чтобы быть очень крутым человеком. Ты уже им являешься.","У нас столько своих слов и приколов не потому, что мы их придумали специально, а потому что дружба сама стала отдельным языком.","Ты человек, которого мне реально хочется поддерживать, а не просто иногда переписываться.","И да: когда я называю тебя ребёнком, это никак не отменяет того, что я отношусь к тебе с большим уважением."];
-let current=comps[0];
-function nextComp(){current=rand(comps);document.getElementById("comp").textContent=current;state.compliments++;save();if(state.compliments>=4)addStamp("comp4","Четыре правды","Да, хорошие слова тоже можно собирать.")}
-function saveFav(){document.getElementById("favOut").textContent="Оставляем. Дядя официально подписался под этими словами.";addStamp("fav","Комплимент сохранён","Один хороший факт зафиксирован без права на отмену.")}
-function prideUpdate(){let v=+document.getElementById("pride").value;document.getElementById("prideN").textContent=v+"%";document.getElementById("prideOut").textContent=v<100?"Ползунок можно двигать, но правильное значение всё равно 100.":"Да. Именно столько.";if(v===100)addStamp("pride","Гордость: 100%","Показатель установлен корректно.")}
-</script><footer class="footer shell">КСЮША.OS · частный интернет для одной малумазель · ПОЯС держится, понятно и ясно.</footer><div class="toast"><b>Штамп получен</b><span>ПОЯС обновлён.</span></div><script src="app.js"></script></body></html>
+const comps=["Ты умеешь делать обычный разговор намного живее просто тем, что ты в нём есть.","С тобой можно не бояться выглядеть глупо. Для дружбы это огромная редкость.","Мне очень нравится твой характер. Ты не картонная и не «удобная» — ты реально ты.","Ты умеешь поднимать настроение, иногда даже не замечая этого.","Мне нравится, что ты можешь спорить со мной, а не просто соглашаться ради спокойствия.","Я правда вижу в тебе силу и упорство, даже когда ты сама к себе строже, чем нужно.","Ты человек, которого мне хочется поддерживать, а не просто иногда переписываться.","С тобой можно одновременно ржать с ерунды и нормально говорить о важном.","Когда я называю тебя ребёнком, это вообще не отменяет того, насколько сильно я тебя уважаю.","Ты важный для меня человек. Всё. Это предложение даже не требует шутки."];
+let currentComp=comps[0];
+function nextComp(){currentComp=rand(comps);document.getElementById("compText").textContent=currentComp}
+function favComp(){if(!state.favs.includes(currentComp)){state.favs.push(currentComp);save()}document.getElementById("favOut").textContent="Оставляем. Дядя официально подписался под этими словами.";unlockAchievement("fav","Комплимент сохранён","Хорошее слово зафиксировано без права на отмену.")}
+function emergencyComp(){document.getElementById("emComp").textContent=rand(["Ты не обязана сегодня быть идеальной, чтобы оставаться очень крутым человеком.","Даже если день идёт криво, это не делает тебя хуже. Я всё равно тобой горжусь.","Ты уже сделала достаточно, чтобы заслуживать нормального отношения к себе — в том числе от самой себя.","Если ты сегодня сомневаешься в себе, можешь временно взять мою уверенность в тебе взаймы."])}
+</script>
+<footer class="footer"><div class="shell">КСЮША.OS · версия «дядя опять что-то придумал» · дружба: да · романтика: нет · дурка: стабильно</div></footer>
+<div class="achievement" id="achievement"><div class="title">Достижение</div><div class="desc">Описание</div></div>
+
+</body></html>
